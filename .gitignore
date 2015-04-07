@@ -1,0 +1,4 @@
+#node folder
+node_modules/
+#bower folder
+components/

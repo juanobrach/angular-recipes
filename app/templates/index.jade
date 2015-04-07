@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	main
+		section()
+			header
+				div.wraper
+					h1{{title}}
+					input(type="text" ng-model="ingredient.$" placeholder="Write me that ingredient you have")
+			article
+				div.recipe
+					h3{{recipe.name}}
+					ul(ng-repeat="r in recipes | filter:ingredient")
+						li
+							h3{{r.name}}
+							i(class="fa fa-clock-o")
+								span{{r.time}}
+							i(ng-class="heart" ng-click="change()")
