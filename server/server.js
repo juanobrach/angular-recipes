@@ -10,10 +10,10 @@ var angularRecipes = (function(){
 
 	_app.engine("html",_cons.jade);
 	_app.set("view engine","jade");
-	_app.set("views","./app/templates");
+	_app.set("views","../app/templates");
 	_app.use(_bodyParser.urlencoded({limit:'50mb',extended:true}));
 	_app.use(_bodyParser.json());
-	_app.use(_express.static("./app"));
+	_app.use(_express.static("../app"));
 
 	_app.get('/',_routes.index)
 
