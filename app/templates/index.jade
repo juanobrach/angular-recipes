@@ -6,10 +6,10 @@ block content
 			header
 				div.wraper
 					h1{{title}}
-					input(type="text" ng-model="ingredient.$" placeholder="Write me that ingredient you have")
+					input(type="text" ng-model="ingredient.ingredients" placeholder="Write me that ingredient you have" class="search")
 			article
 				div.recipe
-					h3{{recipe.name}}
+
 					ul(ng-repeat="r in recipes | filter:ingredient")
 						li
 							h3{{r.name}}

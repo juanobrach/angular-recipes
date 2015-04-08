@@ -1,4 +1,4 @@
-var angularRecipes = angular.module("angularRecipes",['ngRoute']);
+var angularRecipes = angular.module("angularRecipes",['ngRoute','ngTagsInput']);
 
 
 angularRecipes.config(['$routeProvider',function($routeProvider){
@@ -10,54 +10,28 @@ angularRecipes.config(['$routeProvider',function($routeProvider){
 	}
 ])
 
-angularRecipes.controller("recipesCtrl",function($scope){
-  $scope.recipes = [
-    {
-    name :"Ceasar Salad",
-    ingredients:["chicken","lettuce"],
-    time:"8'"
-    },
-    {
-    name :"Lupus Salad",
-    ingredients:["lupus","lettuce"],
-    time:"18'"
-    },
-    {
-    name :"Tomatoe Salad",
-    ingredients:["tomatoe","lettuce"],
-    time:"4'"
-    },
-    {
-    name :"Hamburger NY",
-    ingredients:["meat",
-                 "bread",
-                 "egg",
-                 "lettuce",
-                 "bacon"],
-    time:"25'"
-    },
-    {name :"Hamburger Argentina",
-    ingredients:["meat",
-                 "bread",
-                 "cucumber",
-                 "lettuce",
-                 ],
-    time:"15'"
-    }
+angularRecipes.controller("recipesCtrl",function($scope,$http){
+	/*
+	* Call local database in json with $http
+	*/
+	var recipeJson = $http.get("assets/recipes.json").success(function(data){
+		return $scope.recipes = data
+		console.log(data)
+	});
 
-  ]
-  $scope.title = "What do you can eat";
-  
-  $scope.heart = "fa fa-heart-o heart"
-  $scope.heartO ="fa fa-heart"
-  
-  $scope.change = function(){
-			if($scope.heart === "fa fa-heart-o"){
-        $scope.heart = "fa fa-heart"  
-      }else{
-        $scope.heart = "fa fa-heart-o"
-      }
-    
-  }
+
+	/*Elements config*/
+	  $scope.title = "What do you can eat";
+	  $scope.heart = "fa fa-heart-o heart"
+	  $scope.heartO ="fa fa-heart"
+	  
+	  $scope.change = function(){
+				if($scope.heart === "fa fa-heart-o"){
+	        		$scope.heart = "fa fa-heart"  
+	      		}else{
+	        		$scope.heart = "fa fa-heart-o"
+	      		}
+	  }
+
 })
 
