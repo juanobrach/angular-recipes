@@ -22,5 +22,10 @@
     {"name" :"Hamburger Argentina",
     "ingredients":["meat","bread","cucumber","lettuce"],
     "time":"15'"
+    },
+    {"name" :"Omelette",
+    "ingredients":["egg","tomatoe","cheese"],
+    "time":"7'"
     }
+
 ]

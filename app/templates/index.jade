@@ -1,18 +1,15 @@
 extends layout
 
 block content
-	main
-		section()
-			header
-				div.wraper
-					h1{{title}}
-					input(type="text" ng-model="ingredient.ingredients" placeholder="Write me that ingredient you have" class="search")
-			article
-				div.recipe
-
-					ul(ng-repeat="r in recipes | filter:ingredient")
-						li
-							h3{{r.name}}
-							i(class="fa fa-clock-o")
-								span{{r.time}}
-							i(ng-class="heart" ng-click="change()")
+	header
+		div.wraper
+			h1{{title}}
+			tags-input(type="text" ng-model="tags" placeholder="Write me that ingredient you have" class="search")
+	section
+		div.recipe
+			ul(ng-repeat="r in recipes" ng-show="( [r] | byIngredients:tags).length > 0")
+				li
+					h3{{r.name}}
+					i(class="fa fa-clock-o")
+						span{{r.time}}
+					i(ng-class="heart" ng-click="change()")
