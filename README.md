@@ -3,6 +3,7 @@
 
 > You need to install dependencies ir order to use this aplication
 
-```cd /server/ && npm install
-
-```cd /app/ && bower install
+Node modules
+`cd /server/ && npm install`
+Bower components
+-`cd /app/ && bower install`
